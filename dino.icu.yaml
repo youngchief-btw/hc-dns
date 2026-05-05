@@ -77,10 +77,65 @@ _acme-challenge.ajhalili2006:
   type: CNAME
   value: 3a1ea03c191e234288b279704763e052._acme.deno.net.
 
-_github-pages-challenge-hackclub-alumni.alumni:
+# Alumni Society (https://github.com/hackclub-alumni/meta/issues/1)
+# Records are primarily managed by @ajhalili2006 (U07CAPBB9B5), although other alums
+# can manage them by coordinating at #alums channel or https://github.com/hackclub-alumni/meta.
+# Note that we have moved to hackclub.community, although we keep GH/GL Pages
+# domain verification record below to prevent domain takeovers if we do wildcard
+# CNAME records at *.alumni.dino.icu in future, alongside some email domain alias setup
+# for Uberspace.
+alumni: # U07CAPBB9B5 andreijiroh@alumni.hackclub.community https://github.com/hackclub-alumni/meta
+  # GitLab Pages - https://gitlab.com/hackclub-community/alumni/website
+- ttl: 600
+  type: A
+  value: 35.185.44.232
+- ttl: 600
+  type: AAAA
+  value: "2600:1901:0:7b8a::"
+  # Community mailbox for alums, currently managed by @ajhalili2006 on Uberspace [NOT PLANNED FOR SSO STUFF]
+  # If you are an alum, you can request one via Slack DMs or at https://gitlab.com/hackclub-community/alumni/meta/-/issues.
+- octodns:
+    cloudflare:
+      comment: "U8 mailbox - ajhalili@janus.uberspace.de"
+  ttl: 600
+  type: MX
+  values:
+  - exchange: in-mx.uberspace.de.
+    preference: 10
+- octodns:
+    cloudflare:
+      comment: "U8 mailbox - ajhalili@janus.uberspace.de"
+  ttl: 600
+  type: TXT
+  values:
+  - "uberspace-mail-rK2Mjse6RH"   # verification challenge
+  - "v=spf1 include:spf.uberspace.de ~all"   # SPF records
+_atproto.alumni: # U07CAPBB9B5 andreijiroh@alumni.hackclub.community https://github.com/hackclub-alumni/meta
+- ttl: 600
+  type: TXT
+  value: "did=did:plc:yi5ewii4xerodl6ljn3fwga6"
+uberspace1._domainkey.alumni: # U07CAPBB9B5 andreijiroh@alumni.hackclub.community https://github.com/hackclub-alumni/meta
+- octodns:
+    cloudflare:
+      comment: "U8 mailbox - ajhalili@janus.uberspace.de"
+  ttl: 600
+  type: CNAME
+  value: dkim1.uberspace.de.
+uberspace2._domainkey.alumni: # U07CAPBB9B5 andreijiroh@alumni.hackclub.community https://github.com/hackclub-alumni/meta
+- octodns:
+    cloudflare:
+      comment: "U8 mailbox - ajhalili@janus.uberspace.de"
+  ttl: 600
+  type: CNAME
+  value: dkim2.uberspace.de.
+_github-pages-challenge-hackclub-alumni.alumni: # U07CAPBB9B5 andreijiroh@alumni.hackclub.community https://github.com/hackclub-alumni/meta
 - ttl: 600
   type: TXT
   value: "3777bf5f9b6076520d8bbcebb90d45"
+_gitlab-pages-verification-code.alumni: # U07CAPBB9B5 andreijiroh@alumni.hackclub.community https://github.com/hackclub-alumni/meta
+- ttl: 600
+  type: TXT
+  value: "gitlab-pages-verification-code=398259d364b40425aee99d9b0a6bec8d"
 
 amina: # by https://github.com/amino47
   ttl: 600
@@ -97,12 +152,6 @@ _acme-challenge.andreijiroh:
   type: CNAME
   value: abd77e2d22191e54d5f6c8ad24fcfd97._acme.deno.net.
 
-# Alumni Society (https://github.com/hackclub-alumni/meta/issues/1)
-# Records are primarily managed by @ajhalili2006 (U07CAPBB9B5), although other alums
-# can manage them by coordinating at #alums channel or https://github.com/hackclub-alumni/meta.
-# Note that we have moved to hackclub.community, although we keep GH Pages
-# domain verification record below to prevent domain takeovers if we do wildcard
-# CNAME records at *.alumni.dino.icu in future.
 andrew: # by https://github.com/anddddrew
   ttl: 600
   type: CNAME
@@ -187,6 +236,17 @@ bs: # by https://github.com/leecheeyong/BrawlBio
   ttl: 600
   type: CNAME
   value: cname.vercel-dns.com.
+
+# Hack Club Community PDS default handle suffix base - https://github.com/hackclub-community/atproto-pds
+bsky: # U07CAPBB9B5 andreijiroh@alumni.hackclub.community https://github.com/hackclub-alumni/meta
+- ttl: 600
+  type: CNAME
+  value: ajhalili2006.hackclub.app.
+# Hack Club Community PDS default handle suffix - https://github.com/hackclub-community/atproto-pds
+"*.bsky": # U07CAPBB9B5 andreijiroh@alumni.hackclub.community https://github.com/hackclub-alumni/meta
+- ttl: 300
+  type: CNAME
+  value: ajhalili2006.hackclub.app.
 
 builders-club: #turtlesy1234@gmail.com U0AM2DYC3FB
 - ttl: 600
