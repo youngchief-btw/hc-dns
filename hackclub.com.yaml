@@ -5470,10 +5470,6 @@ crm.stemegypt:
 - ttl: 300
   type: CNAME
   value: stemegypt-crm.42web.io.
-stickerhuman:
-- ttl: 300
-  type: CNAME
-  value: cname.vercel-dns.com.
 stickers: #euan@hackclub.com U06T30DNB3L 
 - octodns:
     cloudflare:
